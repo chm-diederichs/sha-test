@@ -1,0 +1,22 @@
+{
+  "name": "sha-test",
+  "version": "1.0.0",
+  "description": "test suite sha2 hash functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chm-diederichs/sha-test.git"
+  },
+  "author": "Christophe Diederichs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chm-diederichs/sha-test/issues"
+  },
+  "homepage": "https://github.com/chm-diederichs/sha-test#readme",
+  "dependencies": {
+    "tape": "^5.0.1"
+  }
+}
