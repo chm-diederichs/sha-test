@@ -1,6 +1,7 @@
 const crypto = require('crypto')
 const tape = require('tape')
 const vectors = require('./vectors.json')
+const hmacVectors = require('./hmac-vectors.json')
 
 module.exports = function (sha512) {
   tape('empty input', function (t) {
@@ -72,6 +73,18 @@ module.exports = function (sha512) {
       const buf = Buffer.from(vector.input, 'base64')
       const hash = sha512().update(buf).digest('hex')
       t.equal(hash, vector.hash, `input ${i}`)
+      i++
+    }
+    t.end()
+  })
+
+  tape('crypto-browserify hmac vectors', function (t) {
+    let i = 0
+    for (const vector of hmacVectors) {
+      const buf = Buffer.from(vector.data, 'hex')
+      const key = Buffer.from(vector.key, 'hex')
+      const hash = sha512.HMAC(key).update(buf).digest('hex')
+      t.equal(hash, vector.digest, `input ${i}`)
       i++
     }
     t.end()
